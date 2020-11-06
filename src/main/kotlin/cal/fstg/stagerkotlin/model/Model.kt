@@ -1,35 +1,34 @@
 package cal.fstg.stagerkotlin.model
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import javax.persistence.*
 
 @Entity
-open class User(var username: String,
-                var email: String,
-                var password: String,
-                @Id @GeneratedValue var id: Long?);
+@Inheritance(strategy = InheritanceType.JOINED)
+open class User(
+        open var username: String = "",
+        open var email: String = "",
+        open var password: String = "",
+        open var phone: String = "",
+        open var role: String,
+        @Id @GeneratedValue
+        open var id: Long = 0)
 
 @Entity
-open class Student(username: String,
-                   email: String,
-                   password: String,
-                   var registration: String,
-                   var phone: String,
-                   id: Long?
-) : User(username = username,
-        email = email,
-        password = password,
-        id = id)
+data class Student(
+        override var username: String = "",
+        override var email: String = "",
+        override var password: String = "",
+        override var phone: String = "",
+        var registration: String = "",
+        override var id: Long = 0
+) : User(role = "student")
 
 @Entity
-open class Employer(username: String,
-                    email: String,
-                    password: String,
-                    var company: String,
-                    var phone: String,
-                    id: Long?
-) : User(username = username,
-        email = email,
-        password = password,
-        id = id)
+data class Employer(
+        override var username: String = "",
+        override var email: String = "",
+        override var password: String = "",
+        override var phone: String = "",
+        var company: String = "",
+        override var id: Long = 0
+) : User(role = "employer")
