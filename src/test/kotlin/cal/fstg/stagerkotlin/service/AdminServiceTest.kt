@@ -6,21 +6,18 @@ import cal.fstg.stagerkotlin.model.Admin
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
-import org.junit.runner.RunWith
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.junit.jupiter.MockitoExtension
-import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.context.junit4.SpringRunner
 
-@RunWith(SpringRunner::class)
-@SpringBootTest
-class AdminServiceTest(@Mock
-                       var adminRepository: AdminRepository? = null,
-                       @InjectMocks
-                       var adminService: AdminService? = null) {
+@ExtendWith(MockitoExtension::class)
+class AdminServiceTest {
 
+    @Mock
+    var adminRepository: AdminRepository? = null
+    @InjectMocks
+    var adminService: AdminService? = null
 
     var admin1 = Admin(
             firstName = "John",
