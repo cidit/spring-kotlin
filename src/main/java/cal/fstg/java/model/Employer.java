@@ -8,10 +8,11 @@ public class Employer extends User {
     private String company;
 
     public Employer() {
+        role = "employer";
     }
 
-    public Employer(long id, String username, String email, String password, String phone, String role, String company) {
-        super(id, username, email, password, phone, role);
+    public Employer(long id, String firstName, String lastName, String username, String email, String password, String phone, String company) {
+        super(id, firstName, lastName, username, email, password, phone, "employer");
         this.company = company;
     }
 
