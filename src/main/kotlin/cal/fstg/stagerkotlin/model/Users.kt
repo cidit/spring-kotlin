@@ -25,6 +25,7 @@ data class Student(
         override var phone: String = "",
         override var id: Long = 0,
         var registration: String = "",
+        @OneToMany var resumes: Set<Resume> = setOf()
 ) : User(role = "student")
 
 @Entity
@@ -48,5 +49,4 @@ data class Admin(
         override var password: String = "",
         override var phone: String = "",
         override var id: Long = 0,
-        @OneToMany var resumes: Set<Resume> = setOf()
 ) : User(role = "admin")
