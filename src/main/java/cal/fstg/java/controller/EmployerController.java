@@ -2,6 +2,7 @@ package cal.fstg.java.controller;
 
 import cal.fstg.java.dao.EmployerRepository;
 import cal.fstg.java.model.Employer;
+import cal.fstg.java.service.EmployerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,30 +13,30 @@ import java.util.Optional;
 @RequestMapping("/employers")
 public class EmployerController {
 
-    private final EmployerRepository employerRepository;
+    private final EmployerService employerService;
 
     @Autowired
-    public EmployerController(EmployerRepository employerRepository) {
-        this.employerRepository = employerRepository;
+    public EmployerController(EmployerService employerService) {
+        this.employerService = employerService;
     }
 
     @GetMapping("/get/all")
     public List<Employer> getAll() {
-        return employerRepository.findAll();
+        return employerService.getAll();
     }
 
     @GetMapping("/get/{id}")
     public Optional<Employer> getOne(@PathVariable long id) {
-        return employerRepository.findById(id);
+        return employerService.getOne(id);
     }
 
     @PostMapping("/save")
     public void save(@RequestBody Employer employer) {
-        employerRepository.save(employer);
+        employerService.save(employer);
     }
 
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable long id) {
-        employerRepository.deleteById(id);
+        employerService.delete(id);
     }
 }

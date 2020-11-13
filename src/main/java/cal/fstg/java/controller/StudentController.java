@@ -2,6 +2,7 @@ package cal.fstg.java.controller;
 
 import cal.fstg.java.dao.StudentRepository;
 import cal.fstg.java.model.Student;
+import cal.fstg.java.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,30 +13,30 @@ import java.util.Optional;
 @RequestMapping("/students")
 public class StudentController {
 
-    private final StudentRepository studentRepository;
+    private final StudentService studentService;
 
     @Autowired
-    public StudentController(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
     }
 
     @GetMapping("/get/all")
     public List<Student> getAll() {
-        return studentRepository.findAll();
+        return studentService.getAll();
     }
 
     @GetMapping("/get/{id}")
     public Optional<Student> getOne(@PathVariable long id) {
-        return studentRepository.findById(id);
+        return studentService.getOne(id);
     }
 
     @PostMapping("/save")
     public void save(@RequestBody Student student) {
-        studentRepository.save(student);
+        studentService.save(student);
     }
 
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable long id) {
-        studentRepository.deleteById(id);
+        studentService.delete(id);
     }
 }

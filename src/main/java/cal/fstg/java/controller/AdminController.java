@@ -4,6 +4,7 @@ import cal.fstg.java.dao.AdminRepository;
 import cal.fstg.java.dao.EmployerRepository;
 import cal.fstg.java.model.Admin;
 import cal.fstg.java.model.Employer;
+import cal.fstg.java.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,30 +15,30 @@ import java.util.Optional;
 @RequestMapping("/admins")
 public class AdminController {
 
-    private final AdminRepository adminRepository;
+    private final AdminService adminService;
 
     @Autowired
-    public AdminController(AdminRepository adminRepository) {
-        this.adminRepository = adminRepository;
+    public AdminController(AdminService adminService) {
+        this.adminService = adminService;
     }
 
     @GetMapping("/get/all")
     public List<Admin> getAll() {
-        return adminRepository.findAll();
+        return adminService.getAll();
     }
 
     @GetMapping("/get/{id}")
     public Optional<Admin> getOne(@PathVariable long id) {
-        return adminRepository.findById(id);
+        return adminService.getOne(id);
     }
 
     @PostMapping("/save")
     public void save(@RequestBody Admin admin) {
-        adminRepository.save(admin);
+        adminService.save(admin);
     }
 
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable long id) {
-        adminRepository.deleteById(id);
+        adminService.delete(id);
     }
 }
