@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.*
 class DocumentController(@Autowired private val documentService: DocumentService) {
 
     @GetMapping("/get/all")
-    fun getAll(): List<Document> = documentService.getAll()
+    fun getAll() = documentService.getAll()
 
     @GetMapping("/get/{id}")
-    fun getOne(@PathVariable id: Long) = documentService.getOne(id)
+    fun getOne(@PathVariable id: String) = documentService.getOne(id)
 
     @PostMapping("/save")
     fun save(@RequestBody document: Document) = documentService.save(document)
 
     @DeleteMapping("/delete/{id}")
-    fun delete(@PathVariable id: Long) = documentService.delete(id)
+    fun delete(@PathVariable id: String) = documentService.delete(id)
 }

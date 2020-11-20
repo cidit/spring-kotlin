@@ -11,9 +11,9 @@ class EmployerService(@Autowired private val employerRepository: EmployerReposit
 
     fun getAll() = employerRepository.findAll()
 
-    fun getOne(id: Long) = employerRepository.findById(id)
+    fun getOne(id: String) = employerRepository.findById(id)
 
     fun save(employer: Employer) = employerRepository.save(employer)
 
-    fun delete(id: Long) = employerRepository.deleteById(id)
+    fun delete(id: String) = employerRepository.deleteById(id)
 }

@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.*
 class AdminController(@Autowired private val adminService: AdminService) {
 
     @GetMapping("/get/all")
-    fun getAll(): List<Admin> = adminService.getAll()
+    fun getAll() = adminService.getAll()
 
     @GetMapping("/get/{id}")
-    fun getOne(@PathVariable id: Long) = adminService.getOne(id)
+    fun getOne(@PathVariable id: String) = adminService.getOne(id)
 
     @PostMapping("/save")
     fun save(@RequestBody admin: Admin) = adminService.save(admin)
 
     @DeleteMapping("/delete/{id}")
-    fun delete(@PathVariable id: Long) = adminService.delete(id)
+    fun delete(@PathVariable id: String) = adminService.delete(id)
 }

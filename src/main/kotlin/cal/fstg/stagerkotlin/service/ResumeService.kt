@@ -11,9 +11,9 @@ class ResumeService(@Autowired private val resumeRepository: ResumeRepository) {
 
     fun getAll() = resumeRepository.findAll()
 
-    fun getOne(id: Long) = resumeRepository.findById(id)
+    fun getOne(id: String) = resumeRepository.findById(id)
 
     fun save(resume: Resume) = resumeRepository.save(resume)
 
-    fun delete(id: Long) = resumeRepository.deleteById(id)
+    fun delete(id: String) = resumeRepository.deleteById(id)
 }

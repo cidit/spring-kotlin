@@ -11,9 +11,9 @@ class StudentService(@Autowired private val studentRepository: StudentRepository
 
     fun getAll() = studentRepository.findAll()
 
-    fun getOne(id: Long) = studentRepository.findById(id)
+    fun getOne(id: String) = studentRepository.findById(id)
 
     fun save(student: Student) = studentRepository.save(student)
 
-    fun delete(id: Long) = studentRepository.deleteById(id)
+    fun delete(id: String) = studentRepository.deleteById(id)
 }

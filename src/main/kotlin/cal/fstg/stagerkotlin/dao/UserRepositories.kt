@@ -4,12 +4,12 @@ import cal.fstg.stagerkotlin.model.Admin
 import cal.fstg.stagerkotlin.model.Employer
 import cal.fstg.stagerkotlin.model.Student
 import cal.fstg.stagerkotlin.model.User
-import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository
 
-interface UserRepository : JpaRepository<User, Long>
+interface UserRepository : ReactiveMongoRepository<User, String>
 
-interface StudentRepository : JpaRepository<Student, Long>
+interface StudentRepository : ReactiveMongoRepository<Student, String>
 
-interface EmployerRepository : JpaRepository<Employer, Long>
+interface EmployerRepository : ReactiveMongoRepository<Employer, String>
 
-interface AdminRepository : JpaRepository<Admin, Long>
+interface AdminRepository : ReactiveMongoRepository<Admin, String>

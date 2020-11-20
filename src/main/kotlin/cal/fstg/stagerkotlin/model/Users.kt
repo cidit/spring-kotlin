@@ -1,10 +1,10 @@
 package cal.fstg.stagerkotlin.model
 
-import javax.persistence.*
+import org.springframework.data.mongodb.core.mapping.Document
 
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Document
 open class User(
+        open var id: String = "0L",
         open var firstName: String = "",
         open var lastName: String = "",
         open var username: String = "",
@@ -12,41 +12,40 @@ open class User(
         open var password: String = "",
         open var phone: String = "",
         open var role: String,
-        @Id @GeneratedValue
-        open var id: Long = 0)
+)
 
-@Entity
+@Document
 data class Student(
+        override var id: String = "0L",
         override var firstName: String = "",
         override var lastName: String = "",
         override var username: String = "",
         override var email: String = "",
         override var password: String = "",
         override var phone: String = "",
-        override var id: Long = 0,
         var registration: String = "",
-        @OneToMany var resumes: Set<Resume> = setOf()
+//        @OneToMany var resumes: Set<Resume> = setOf()
 ) : User(role = "student")
 
-@Entity
+@Document
 data class Employer(
+        override var id: String = "0L",
         override var firstName: String = "",
         override var lastName: String = "",
         override var username: String = "",
         override var email: String = "",
         override var password: String = "",
         override var phone: String = "",
-        override var id: Long = 0,
         var company: String = "",
 ) : User(role = "employer")
 
-@Entity
+@Document
 data class Admin(
+        override var id: String = "0L",
         override var firstName: String = "",
         override var lastName: String = "",
         override var username: String = "",
         override var email: String = "",
         override var password: String = "",
         override var phone: String = "",
-        override var id: Long = 0,
 ) : User(role = "admin")

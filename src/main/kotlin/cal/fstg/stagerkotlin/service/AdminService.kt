@@ -11,9 +11,9 @@ class AdminService(@Autowired private val adminRepository: AdminRepository) {
 
     fun getAll() = adminRepository.findAll()
 
-    fun getOne(id: Long) = adminRepository.findById(id)
+    fun getOne(id: String) = adminRepository.findById(id)
 
     fun save(admin: Admin) = adminRepository.save(admin)
 
-    fun delete(id: Long) = adminRepository.deleteById(id)
+    fun delete(id: String) = adminRepository.deleteById(id)
 }

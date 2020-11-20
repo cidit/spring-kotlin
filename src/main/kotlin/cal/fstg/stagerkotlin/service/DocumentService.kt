@@ -10,9 +10,9 @@ class DocumentService(@Autowired private val documentRepository: DocumentReposit
 
     fun getAll() = documentRepository.findAll()
 
-    fun getOne(id: Long) = documentRepository.findById(id)
+    fun getOne(id: String) = documentRepository.findById(id)
 
     fun save(document: Document) = documentRepository.save(document)
 
-    fun delete(id: Long) = documentRepository.deleteById(id)
+    fun delete(id: String) = documentRepository.deleteById(id)
 }

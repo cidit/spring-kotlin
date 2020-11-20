@@ -10,9 +10,9 @@ class UserService(@Autowired private val userRepository: UserRepository) {
 
     fun getAll() = userRepository.findAll()
 
-    fun getOne(id: Long) = userRepository.findById(id)
+    fun getOne(id: String) = userRepository.findById(id)
 
     fun save(user: User) = userRepository.save(user)
 
-    fun delete(id: Long) = userRepository.deleteById(id)
+    fun delete(id: String) = userRepository.deleteById(id)
 }

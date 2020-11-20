@@ -1,29 +1,20 @@
 package cal.fstg.stagerkotlin.model
 
-import com.sun.xml.bind.v2.TODO
-import javax.persistence.*
-
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@org.springframework.data.mongodb.core.mapping.Document
 open class Document(
+        open var id: String = "0L",
         open var name: String = "",
         open var status: Status = Status.UNREVIEWED,
-        @Lob @Column(columnDefinition = "BLOB") open var data: ByteArray? = null,
-        @Id open var id: Long = 0L
+//        @Lob @Column(columnDefinition = "BLOB") open var data: ByteArray? = null,
 ) {
     enum class Status { DENIED, UNREVIEWED, APPROVED }
 }
 
-@Entity
+@org.springframework.data.mongodb.core.mapping.Document
 data class Resume(
+        override var id: String = "0L",
         override var name: String = "",
         override var status: Status = Status.UNREVIEWED,
-        override var data: ByteArray? = null,
-        override var id: Long = 0L,
-        @ManyToOne var student: Student
+//        override var data: ByteArray? = null,
+//        @ManyToOne var student: Student
 ) : Document()
-
-//@Entity
-//data class Contract(
-//        var todo: TODO // TODO: 2020-11-13
-//) : Document()

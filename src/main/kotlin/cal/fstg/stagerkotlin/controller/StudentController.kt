@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.*
 class StudentController(@Autowired private val studentService: StudentService) {
 
     @GetMapping("/get/all")
-    fun getAll(): List<Student> = studentService.getAll()
+    fun getAll() = studentService.getAll()
 
     @GetMapping("/get/{id}")
-    fun getOne(@PathVariable id: Long) = studentService.getOne(id)
+    fun getOne(@PathVariable id: String) = studentService.getOne(id)
 
     @PostMapping("/save")
     fun save(@RequestBody student: Student) = studentService.save(student)
 
     @DeleteMapping("/delete/{id}")
-    fun delete(@PathVariable id: Long) = studentService.delete(id)
+    fun delete(@PathVariable id: String) = studentService.delete(id)
 }

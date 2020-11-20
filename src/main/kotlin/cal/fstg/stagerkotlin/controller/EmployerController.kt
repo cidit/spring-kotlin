@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.*
 class EmployerController(@Autowired private val employerService: EmployerService) {
 
     @GetMapping("/get/all")
-    fun getAll(): List<Employer> = employerService.getAll()
+    fun getAll() = employerService.getAll()
 
     @GetMapping("/get/{id}")
-    fun getOne(@PathVariable id: Long) = employerService.getOne(id)
+    fun getOne(@PathVariable id: String) = employerService.getOne(id)
 
     @PostMapping("/save")
     fun save(@RequestBody employer: Employer) = employerService.save(employer)
 
     @DeleteMapping("/delete/{id}")
-    fun delete(@PathVariable id: Long) = employerService.delete(id)
+    fun delete(@PathVariable id: String) = employerService.delete(id)
 
 }

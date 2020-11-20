@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.*
 class UserController(@Autowired private val userService: UserService) {
 
     @GetMapping("/get/all")
-    fun getAll(): List<User> = userService.getAll()
+    fun getAll() = userService.getAll()
 
     @GetMapping("/get/{id}")
-    fun getOne(@PathVariable id: Long) = userService.getOne(id)
+    fun getOne(@PathVariable id: String) = userService.getOne(id)
 
     @PostMapping("/save")
     fun save(@RequestBody user: User) = userService.save(user)
 
     @DeleteMapping("/delete/{id}")
-    fun delete(@PathVariable id: Long) = userService.delete(id)
+    fun delete(@PathVariable id: String) = userService.delete(id)
 }
