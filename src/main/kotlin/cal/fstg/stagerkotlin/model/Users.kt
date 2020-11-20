@@ -1,10 +1,11 @@
 package cal.fstg.stagerkotlin.model
 
+import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 
 @Document
 open class User(
-        open var id: String = "0L",
+        @Id open var id: String = "",
         open var firstName: String = "",
         open var lastName: String = "",
         open var username: String = "",
@@ -16,7 +17,7 @@ open class User(
 
 @Document
 data class Student(
-        override var id: String = "0L",
+        override var id: String = "",
         override var firstName: String = "",
         override var lastName: String = "",
         override var username: String = "",
@@ -29,7 +30,7 @@ data class Student(
 
 @Document
 data class Employer(
-        override var id: String = "0L",
+        override var id: String = "",
         override var firstName: String = "",
         override var lastName: String = "",
         override var username: String = "",
@@ -41,7 +42,7 @@ data class Employer(
 
 @Document
 data class Admin(
-        override var id: String = "0L",
+        override var id: String = "",
         override var firstName: String = "",
         override var lastName: String = "",
         override var username: String = "",
