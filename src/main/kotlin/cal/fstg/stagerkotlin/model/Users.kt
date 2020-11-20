@@ -5,49 +5,75 @@ import org.springframework.data.mongodb.core.mapping.Document
 
 //@Document
 open class User(
-        @Id open var id: String = "",
-        open var firstName: String = "",
-        open var lastName: String = "",
-        open var username: String = "",
-        open var email: String = "",
-        open var password: String = "",
-        open var phone: String = "",
-        open var role: String,
+        var id: String = "",
+        var firstName: String = "",
+        var lastName: String = "",
+        var username: String = "",
+        var email: String = "",
+        var password: String = "",
+        var phone: String = "",
+        var role: String,
 )
 
 @Document
-data class Student(
-        override var id: String = "",
-        override var firstName: String = "",
-        override var lastName: String = "",
-        override var username: String = "",
-        override var email: String = "",
-        override var password: String = "",
-        override var phone: String = "",
+open class Student(
+        id: String = "",
+        firstName: String = "",
+        lastName: String = "",
+        username: String = "",
+        email: String = "",
+        password: String = "",
+        phone: String = "",
         var registration: String = "",
 //        @OneToMany var resumes: Set<Resume> = setOf()
-) : User(role = "student")
+) : User(
+        id = id,
+        firstName = firstName,
+        lastName = lastName,
+        username = username,
+        email = email,
+        password = password,
+        phone = phone,
+        role = "student",
+)
 
 @Document
-data class Employer(
-        override var id: String = "",
-        override var firstName: String = "",
-        override var lastName: String = "",
-        override var username: String = "",
-        override var email: String = "",
-        override var password: String = "",
-        override var phone: String = "",
+open class Employer(
+        id: String = "",
+        firstName: String = "",
+        lastName: String = "",
+        username: String = "",
+        email: String = "",
+        password: String = "",
+        phone: String = "",
         var company: String = "",
-) : User(role = "employer")
+) : User(
+        id = id,
+        firstName = firstName,
+        lastName = lastName,
+        username = username,
+        email = email,
+        password = password,
+        phone = phone,
+        role = "employer",
+)
 
 @Document
-data class Admin(
-        override var id: String = "",
-        override var firstName: String = "",
-        override var lastName: String = "",
-        override var username: String = "",
-        override var email: String = "",
-        override var password: String = "",
-        override var phone: String = "",
-) : User(role = "admin")
-// excuse for a commit
+open class Admin(
+        id: String = "",
+        firstName: String = "",
+        lastName: String = "",
+        username: String = "",
+        email: String = "",
+        password: String = "",
+        phone: String = "",
+) : User(
+        id = id,
+        firstName = firstName,
+        lastName = lastName,
+        username = username,
+        email = email,
+        password = password,
+        phone = phone,
+        role = "admin",
+)
