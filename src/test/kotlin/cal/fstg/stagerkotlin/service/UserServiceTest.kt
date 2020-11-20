@@ -1,5 +1,6 @@
 package cal.fstg.stagerkotlin.service
 
+import cal.fstg.stagerkotlin.dao.UserRepository
 import cal.fstg.stagerkotlin.model.User
 import kotlinx.coroutines.reactor.mono
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -13,11 +14,11 @@ import reactor.test.StepVerifier
 class UserServiceTest {
 
     @Autowired
-    var userService: UserService? = null;
+    var userRepository: UserRepository? = null;
 
     @Test
     fun `test if embeded mongo database works`() {
-        val id = userService?.save(User(
+        val id = userRepository?.save(User(
                 firstName = "bob",
                 lastName = "ross",
                 email = "bob@ross.com",
@@ -29,7 +30,7 @@ class UserServiceTest {
 
         print(id)
 
-        val userMono = id?.let { userService?.getOne(it) }
+        val userMono = id?.let { userRepository?.findById(it) }
 
         //StepVerifier.create<User> { userMono }.assertNext { assertEquals(it.firstName, "bob") }.expectComplete().verify()
     }
