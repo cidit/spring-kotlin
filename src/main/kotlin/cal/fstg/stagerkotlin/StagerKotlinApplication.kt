@@ -27,14 +27,14 @@ class StagerKotlinApplication(@Autowired private val populateDatabaseService: Po
 @EnableWebFlux
 class WebFluxConfig : WebFluxConfigurer
 
-@Configuration
-@EnableReactiveMongoRepositories
-class MongoReactiveConfig: AbstractReactiveMongoConfiguration() {
-
-    override fun reactiveMongoClient() = MongoClients.create()
-
-    override fun getDatabaseName(): String = "spring-kotlin"
-}
+//@Configuration
+//@EnableReactiveMongoRepositories
+//class MongoReactiveConfig: AbstractReactiveMongoConfiguration() {
+//
+//    override fun reactiveMongoClient() = MongoClients.create()
+//
+//    override fun getDatabaseName(): String = "spring-kotlin"
+//}
 
 fun main(args: Array<String>) {
     runApplication<StagerKotlinApplication>(*args)
