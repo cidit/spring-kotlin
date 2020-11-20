@@ -50,3 +50,4 @@ data class Admin(
         override var password: String = "",
         override var phone: String = "",
 ) : User(role = "admin")
+// excuse for a commit
