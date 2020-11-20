@@ -35,7 +35,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-//    implementation("junit:junit:4.12")
+
+    implementation("junit:junit:4.12")
     implementation("org.junit.jupiter:junit-jupiter:5.4.2")
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
@@ -62,5 +63,9 @@ tasks.withType<KotlinCompile> {
 }
 val compileKotlin: KotlinCompile by tasks
 compileKotlin.kotlinOptions {
+    languageVersion = "1.4"
+}
+val compileTestKotlin: KotlinCompile by tasks
+compileTestKotlin.kotlinOptions {
     languageVersion = "1.4"
 }
