@@ -31,7 +31,7 @@ class WebFluxConfig : WebFluxConfigurer
 @EnableReactiveMongoRepositories
 class MongoReactiveConfig: AbstractReactiveMongoConfiguration() {
 
-    override fun reactiveMongoClient() = MongoClients.create()
+    override fun reactiveMongoClient() = MongoClients.create("mongodb://localhost:27018/spring-kotlin")
 
     override fun getDatabaseName(): String = "spring-kotlin"
 }
