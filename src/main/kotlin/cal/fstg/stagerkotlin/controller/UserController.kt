@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.*
 class UserController(@Autowired private val userService: UserService) {
 
     @GetMapping("/get/all")
-    fun getAll() = userService.getAll()
+    fun getAll() {
+        print("hitting endpoint")
+        userService.getAll()
+    }
 
     @GetMapping("/get/{id}")
     fun getOne(@PathVariable id: String) = userService.getOne(id)
