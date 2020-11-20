@@ -17,7 +17,7 @@ class UserServiceTest {
 
     @Test
     fun `test if embeded mongo database works`() {
-        userService?.save(User(
+        val id = userService?.save(User(
                 firstName = "bob",
                 lastName = "ross",
                 email = "bob@ross.com",
@@ -25,10 +25,12 @@ class UserServiceTest {
                 username = "bob_ross",
                 phone = "1234567890",
                 role = "painter",
-        ))
+        ))?.block()?.id
 
-        val userMono = userService?.getAll()
+        print(id)
 
-        StepVerifier.create<User> { userMono?.next() }.assertNext { assertEquals(it.firstName, "bob") }.expectComplete().verify()
+        val userMono = id?.let { userService?.getOne(it) }
+
+        //StepVerifier.create<User> { userMono }.assertNext { assertEquals(it.firstName, "bob") }.expectComplete().verify()
     }
 }
