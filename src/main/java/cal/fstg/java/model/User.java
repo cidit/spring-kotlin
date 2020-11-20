@@ -1,13 +1,13 @@
 package cal.fstg.java.model;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+//@Entity
+//@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
 
-    @Id
-    @GeneratedValue
+//    @Id
+//    @GeneratedValue
     protected long id;
 
     protected String firstName;

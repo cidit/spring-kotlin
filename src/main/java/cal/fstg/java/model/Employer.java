@@ -1,8 +1,8 @@
 package cal.fstg.java.model;
 
-import javax.persistence.Entity;
+//import javax.persistence.Entity;
 
-@Entity
+//@Entity
 public class Employer extends User {
 
     private String company;

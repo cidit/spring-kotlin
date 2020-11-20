@@ -1,6 +1,7 @@
 package cal.fstg.stagerkotlin
 
 import cal.fstg.stagerkotlin.service.PopulateDatabaseService
+import com.mongodb.reactivestreams.client.MongoClient
 import com.mongodb.reactivestreams.client.MongoClients
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
@@ -30,10 +31,8 @@ class WebFluxConfig : WebFluxConfigurer
 @EnableReactiveMongoRepositories
 class MongoReactiveConfig: AbstractReactiveMongoConfiguration() {
 
-    @Bean
-    fun mongoClient() = MongoClients.create()
+    override fun reactiveMongoClient() = MongoClients.create()
 
-    @Bean
     override fun getDatabaseName(): String = "spring-kotlin"
 }
 

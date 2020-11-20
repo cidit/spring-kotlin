@@ -1,14 +1,14 @@
 package cal.fstg.java.controller;
 
-import cal.fstg.java.model.Document;
-import cal.fstg.java.model.Resume;
-import cal.fstg.java.service.DocumentService;
-import cal.fstg.java.service.ResumeService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
+//import cal.fstg.java.model.Document;
+//import cal.fstg.java.model.Resume;
+//import cal.fstg.java.service.DocumentService;
+//import cal.fstg.java.service.ResumeService;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.web.bind.annotation.*;
+//
+//import java.util.List;
+//import java.util.Optional;
 
 //@RestController
 //@RequestMapping("/resumes")

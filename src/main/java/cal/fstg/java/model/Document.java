@@ -1,23 +1,23 @@
 package cal.fstg.java.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+//import javax.persistence.Column;
+//import javax.persistence.Entity;
+//import javax.persistence.Id;
+//import javax.persistence.Lob;
 import java.util.Arrays;
 
-@Entity
+//@Entity
 public class Document {
 
-    @Id
+//    @Id
     protected long id;
 
     protected String name;
 
     protected Status status;
 
-    @Lob
-    @Column(columnDefinition = "BLOB")
+//    @Lob
+//    @Column(columnDefinition = "BLOB")
     private byte[] data;
 
     public enum Status {

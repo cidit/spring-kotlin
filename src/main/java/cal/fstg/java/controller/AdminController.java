@@ -1,15 +1,15 @@
 package cal.fstg.java.controller;
 
-import cal.fstg.java.dao.AdminRepository;
-import cal.fstg.java.dao.EmployerRepository;
-import cal.fstg.java.model.Admin;
-import cal.fstg.java.model.Employer;
-import cal.fstg.java.service.AdminService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
+//import cal.fstg.java.dao.AdminRepository;
+//import cal.fstg.java.dao.EmployerRepository;
+//import cal.fstg.java.model.Admin;
+//import cal.fstg.java.model.Employer;
+//import cal.fstg.java.service.AdminService;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.web.bind.annotation.*;
+//
+//import java.util.List;
+//import java.util.Optional;
 
 //@RestController
 //@RequestMapping("/admins")

@@ -16,7 +16,13 @@ class PopulateDatabaseService(
         @Autowired private val employerRepository: EmployerRepository
 ) {
     fun insert() {
-        print("populating!")
+        print("""
+            
+            
+populating!
+
+
+""".trimIndent())
         userRepository.save(
                 User(role = "none").apply {
                     username = "tata"
