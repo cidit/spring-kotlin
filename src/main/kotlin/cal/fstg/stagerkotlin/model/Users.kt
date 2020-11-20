@@ -1,11 +1,14 @@
 package cal.fstg.stagerkotlin.model
 
-import org.springframework.data.annotation.Id
+import javax.persistence.Id
 import org.springframework.data.mongodb.core.mapping.Document
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
 
-//@Document
+@Entity
 open class User(
-        var id: String = "",
+        @Id @GeneratedValue(strategy = GenerationType.AUTO) var id: String = "",
         var firstName: String = "",
         var lastName: String = "",
         var username: String = "",
@@ -15,7 +18,7 @@ open class User(
         var role: String,
 )
 
-@Document
+@Entity
 open class Student(
         id: String = "",
         firstName: String = "",
@@ -37,7 +40,7 @@ open class Student(
         role = "student",
 )
 
-@Document
+@Entity
 open class Employer(
         id: String = "",
         firstName: String = "",
@@ -58,7 +61,7 @@ open class Employer(
         role = "employer",
 )
 
-@Document
+@Entity
 open class Admin(
         id: String = "",
         firstName: String = "",

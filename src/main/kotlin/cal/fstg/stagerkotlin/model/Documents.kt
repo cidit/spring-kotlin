@@ -1,10 +1,14 @@
 package cal.fstg.stagerkotlin.model
 
-import org.springframework.data.annotation.Id
+import javax.persistence.Id
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
 
 
+@Entity
 open class Document(
-        var id: String = "",
+        @Id @GeneratedValue(strategy = GenerationType.AUTO) var id: String = "",
         var name: String = "",
         var status: Status = Status.UNREVIEWED,
 //        @Lob @Column(columnDefinition = "BLOB") open var data: ByteArray? = null,
@@ -12,7 +16,7 @@ open class Document(
     enum class Status { DENIED, UNREVIEWED, APPROVED }
 }
 
-
+@Entity
 open class Resume(
         id: String = "",
         name: String = "",
