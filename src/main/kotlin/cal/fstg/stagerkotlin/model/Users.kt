@@ -3,7 +3,7 @@ package cal.fstg.stagerkotlin.model
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 
-@Document
+//@Document
 open class User(
         @Id open var id: String = "",
         open var firstName: String = "",
