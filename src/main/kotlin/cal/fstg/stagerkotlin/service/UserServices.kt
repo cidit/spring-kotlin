@@ -19,4 +19,5 @@ class UserService(@Autowired private val userRepository: UserRepository) {
     fun save(user: User) = mono { userRepository.save(user) }
 
     fun delete(id: String) = userRepository.deleteById(id)
+
 }

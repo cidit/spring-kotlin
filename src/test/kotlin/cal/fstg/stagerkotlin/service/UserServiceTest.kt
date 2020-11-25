@@ -26,7 +26,7 @@ class UserServiceTest {
                 username = "bob_ross",
                 phone = "1234567890",
                 role = "painter",
-        ))?.block()?.id
+        ))?.id
 
         print(id)
 
